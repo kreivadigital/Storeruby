@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+  <h4>Import data!</h4>
+  <%= form_tag import_sales_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import from file" %>
+  <% end %>
+</div>
+
+<h1>Sales</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Apncode</th>
+      <th>Rrp</th>
+      <th>Lastbyprice</th>
+      <th>Itemdescription</th>
+      <th>Author</th>
+      <th>Productcategory</th>
+      <th>Actualstockonhand</th>
+      <th>Transdate</th>
+      <th>Transtime</th>
+      <th>Transdocumentnumber</th>
+      <th>Transrreference</th>
+      <th>Transtotalextaxvalue</th>
+      <th>Transtotaltax</th>
+      <th>Totaldiscountgiven</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sales.each do |sale| %>
+      <tr>
+        <td><%= sale.apncode %></td>
+        <td><%= sale.rrp %></td>
+        <td><%= sale.lastByPrice %></td>
+        <td><%= sale.itemDescription %></td>
+        <td><%= sale.author %></td>
+        <td><%= sale.productCategory %></td>
+        <td><%= sale.actualStockOnHand %></td>
+        <td><%= sale.transDate %></td>
+        <td><%= sale.transTime %></td>
+        <td><%= sale.transDocumentNumber %></td>
+        <td><%= sale.transRreference %></td>
+        <td><%= sale.transTotalExtaxValue %></td>
+        <td><%= sale.transTotaltax %></td>
+        <td><%= sale.totalDiscountGiven %></td>
+        <td><%= link_to 'Show', sale %></td>
+        <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+        <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sale', new_sale_path %>

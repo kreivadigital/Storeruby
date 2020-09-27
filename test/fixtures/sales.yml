@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  apncode: MyString
+  rrp: MyString
+  lastByPrice: 1
+  itemDescription: MyText
+  author: MyText
+  productCategory: MyText
+  actualStockOnHand: 1
+  transDate: 2020-09-23
+  transTime: 2020-09-23 16:59:17
+  transDocumentNumber: MyString
+  transRreference: 
+  transTotalExtaxValue: 1
+  transTotaltax: 1
+  totalDiscountGiven: 1
+
+two:
+  apncode: MyString
+  rrp: MyString
+  lastByPrice: 1
+  itemDescription: MyText
+  author: MyText
+  productCategory: MyText
+  actualStockOnHand: 1
+  transDate: 2020-09-23
+  transTime: 2020-09-23 16:59:17
+  transDocumentNumber: MyString
+  transRreference: 
+  transTotalExtaxValue: 1
+  transTotaltax: 1
+  totalDiscountGiven: 1

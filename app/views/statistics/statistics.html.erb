@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+   <head>
+      <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+      <link href="./main.css" rel="stylesheet" />
+      <title>Document</title>
+   </head>
+   <body>
+         <div class="menu">
+            <div class="v39_192">
+               <span class="v39_194">SALES</span>
+               <span class="v39_195">Statistics</span>
+            </div>
+            <div class="v39_198">
+               <span class="v33_80">Kreiva Digital</span>
+            </div>
+</div>
+         <div class="grid">
+
+           <div class="logout">
+                       <% if notice %>
+                 <p class="alert alert-success"><%= notice %></p>
+               <% end %>
+               <% if alert %>
+                 <p class="alert alert-danger"><%= alert %></p>
+               <% end %>
+
+
+               <p class="navbar-text float-right">
+               <% if user_signed_in? %>
+                 Hi <strong><%= current_user.email %></strong>.
+                 <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+                 <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+               <% else %>
+                 <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+                 <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+               <% end %>
+               </p>
+                    </div>
+                    
+            <div class="gridtitle">
+              <span>Statistics</span>
+            </div>
+            <table class="table1">
+              <thead>
+                  <tr>
+                    <th>YEAR/MONTHS</th>
+                    <%  @viewyears.each do |sale| %>
+                      <th><%= sale.Year  %></th>
+                    <% end %>
+                  </tr>
+                </thead>
+              <tbody>
+                <% monthname = {1=> "January", 2=> "February",3=> "March",4=> "April",5=> "May",6=> "June",7=> "July",8=> "August",9=> "September",10=> "October",11=> "November", 12=> "December"} %>
+                <%  @viewmonthyear.each do |monthyear| %>
+                  <tr>
+                    <td><%= monthname[monthyear.Month] %></td>
+                      <% @viewyears.each do |year| %>
+                          <% @viewmonths.each do |month| %>
+                            <% if month.Year ==  year.Year && month.Month == monthyear.Month%>
+                          <td><%= month.Total %></td>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  </tr>
+                <% end %>
+          </div>
+   </body>
+</html>

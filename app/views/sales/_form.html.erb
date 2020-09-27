@@ -1,0 +1,87 @@
+<%= form_with(model: sale, local: true) do |form| %>
+  <% if sale.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+
+      <ul>
+        <% sale.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :apncode %>
+    <%= form.text_field :apncode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rrp %>
+    <%= form.text_field :rrp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lastByPrice %>
+    <%= form.number_field :lastByPrice %>
+  </div>
+
+  <div class="field">
+    <%= form.label :itemDescription %>
+    <%= form.text_area :itemDescription %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_area :author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :productCategory %>
+    <%= form.text_area :productCategory %>
+  </div>
+
+  <div class="field">
+    <%= form.label :actualStockOnHand %>
+    <%= form.number_field :actualStockOnHand %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transDate %>
+    <%= form.date_select :transDate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transTime %>
+    <%= form.time_select :transTime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transDocumentNumber %>
+    <%= form.text_field :transDocumentNumber %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transRreference %>
+    <%= form.text_field :transRreference %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transTotalExtaxValue %>
+    <%= form.number_field :transTotalExtaxValue %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transTotaltax %>
+    <%= form.number_field :transTotaltax %>
+  </div>
+
+  <div class="field">
+    <%= form.label :totalDiscountGiven %>
+    <%= form.number_field :totalDiscountGiven %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
