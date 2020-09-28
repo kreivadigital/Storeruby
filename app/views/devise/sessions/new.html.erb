@@ -1,15 +1,18 @@
 <div class="loginmain">
   <h2>Log in</h2>
-
+<div id="logoCircleSoft">
+  <img src="https://kreivadigital.com/rubyProject/images/circleposLogo.png" width="200" height="30">
+</div>
+<div id="logoKreivaDigital">
+  <img src="https://kreivadigital.com/rubyProject/images/LogoKreiva.png" width="150" height="120">
+</div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email", class:"login_blank" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "password", class:"login_blank" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -20,7 +23,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class:"btnLogin" %>
   </div>
 <% end %>
 
